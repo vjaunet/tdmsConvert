@@ -100,7 +100,7 @@ def main(argv):
             ofile=open(outputfile+'_gp'+str(igrp)+'.bin',"wb")
         else :
             if verbose :
-                print('Output file is "',outputfile+'_gp'+str(igrp)+'.bin','"')
+                print('Output file is "',outputfile+'.bin','"')
             ofile=open(outputfile+'.bin',"wb")
 
         #Header ==============================================
