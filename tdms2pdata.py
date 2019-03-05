@@ -84,7 +84,10 @@ def main(argv):
 
         #for all aquisition channels
         for chan in groupChans:
-            dataTot[ichan][:] = chan.data/kMic[ichan]
+            if calibConv :
+                dataTot[ichan][:] = chan.data/kMic[ichan]
+            else :
+                dataTot[ichan][:] = chan.data
             ichan = ichan+1
 
         #===============================================
@@ -100,6 +103,7 @@ def main(argv):
                 print('Output file is "',outputfile+'_gp'+str(igrp)+'.bin','"')
             ofile=open(outputfile+'.bin',"wb")
 
+        #Header ==============================================
         ofile.write(b'v0.1')
         ofile.write(bytearray(struct.pack("i", nchan)))
         ofile.write(bytearray(struct.pack("i", nsamples)))
@@ -109,6 +113,7 @@ def main(argv):
             ofile.write(b'x')
         for x in range(nchan*2):
             ofile.write(bytearray(struct.pack("f", 0.0)))
+        #Header ==============================================
         dataTot.astype('f').tofile(ofile)
         ofile.close()
         igrp=igrp+1
