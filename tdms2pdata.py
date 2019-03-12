@@ -94,7 +94,7 @@ def main(argv):
         # data conversion to pressData format
         # assumes that all channels have same length
         #===============================================
-        if len(group) > 1:
+        if len(tdmsFileGroups) > 1:
             if verbose :
                 print('Output file is "',outputfile+'_gp'+str(igrp)+'.bin','"')
             ofile=open(outputfile+'_gp'+str(igrp)+'.bin',"wb")
