@@ -1,4 +1,4 @@
-#!/opt/miniconda3/bin/python
+#!/usr/bin/python3.5
 #
 #
 #           Convertisseur NI tdms file to lib_pressdata binary format
